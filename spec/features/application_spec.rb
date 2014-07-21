@@ -16,4 +16,13 @@ feature 'Homepage' do
     click_button 'Add Message'
     expect(page).to have_content('Luke says: Such functionality! Much wow!')
   end
+  scenario 'Visitor can see all messages which have been left on homepage' do
+    fill_in 'Name:', :with => 'Luke'
+    fill_in 'Message:', :with => 'Such functionality! Much wow!'
+    click_button 'Add Message'
+    fill_in 'Name:', :with => 'Jefferoni'
+    fill_in 'Message:', :with => 'Wow woah awesome crazy!'
+    click_button 'Add Message'
+    expect(page).to have_content('Luke says: Such functionality! Much wow! Jefferoni says: Wow woah awesome crazy!')
+  end
 end
