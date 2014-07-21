@@ -21,7 +21,8 @@ class CountryList
   end
 
   def countries_for_continent(continent)
-    all
+    @continent = continent
+    @countries = all.group_by { |hash| hash[:continent] == continent}
   end
 
 end
