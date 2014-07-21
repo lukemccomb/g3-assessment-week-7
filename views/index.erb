@@ -2,10 +2,16 @@
 
 <p>We show totally accurate lists of continents and countries!!</p>
 
-<form>
+<form action="/message/" method="post">
   <label for="name">Name:</label><br>
   <input type="text" id="name" name="name"><br>
   <label for="message">Message:</label><br>
   <input type="text" id="message" name="message"><br>
   <button type="submit">Add Message</button>
 </form>
+
+<ul>
+  <% @message_arr.each do |hsh| %>
+    <li><%= hsh['name'] %> says: <%= hsh['message'] %></li>
+  <% end %>
+</ul>
